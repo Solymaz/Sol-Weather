@@ -6,9 +6,10 @@
   align-items: center; 
 }
 
-.wrapper {
+.forecast {
   width: 220px;
   height: 350px;
   background-color: #f4d160;
   border-radius: 15px;
 }
+
