@@ -1,7 +1,14 @@
 .App {
   background-color: #282c34;
   min-height: 100vh;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
 }
 
 .wrapper {
+  width: 220px;
+  height: 350px;
+  background-color: #f4d160;
+  border-radius: 15px;
 }
