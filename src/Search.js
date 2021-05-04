@@ -1,13 +1,29 @@
+import React, { useState } from "react";
 import "./Search.css";
 import Add from "../src/assets/Add";
 
 export default function Search() {
+  const [city, setCity] = useState();
+  const [showSearchBox, setShowSearchBox] = useState(false);
+
   return (
     <div className="search">
-      <div className="add">
-        <Add />
-      </div>
+      {showSearchBox ? (
+        <div className="searchBox">
+          <form>
+            <input
+              type="search"
+              className="searchBox"
+              placeholder="Type a city.."
+              onChange={(event) => setCity(event.target.value)}
+            />
+          </form>
+        </div>
+      ) : (
+        <div className="add" onClick={() => setShowSearchBox(true)}>
+          <Add />
+        </div>
+      )}
     </div>
   );
 }
-//       <img className="add" src="../media/Add.svg" alt="add icon" />
