@@ -6,11 +6,16 @@ import "./App.css";
 
 function App() {
   const [weatherData, setWeatherData] = useState();
+  const [city, setCity] = useState();
 
+  //show Stockholm weather as the default city
   useEffect(() => {
-    showWeather();
+    showWeather("stockholm");
   }, []);
-  
+
+  //add the weather of the user's choice
+  useEffect(() => {}, [city]);
+
   function showWeather(city) {
     const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f2ba4b7c95e0f3e8dedeafe2da9d569f&units=metric`;
     axios
@@ -20,11 +25,15 @@ function App() {
       })
       .catch(() => {});
   }
-  
+  console.log(weatherData);
   return (
     <div className="App">
+      {weatherData &&
+      <>
       <WeatherCard weatherData={weatherData} />
-      <Search />
+      <Search setCity={setCity} />
+      </>
+      }
     </div>
   );
 }

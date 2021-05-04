@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import "./Search.css";
 import Add from "../src/assets/Add";
 
-export default function Search() {
-  const [city, setCity] = useState();
+export default function Search({ setCity }) {
   const [showSearchBox, setShowSearchBox] = useState(false);
 
   return (
