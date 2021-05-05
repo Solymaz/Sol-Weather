@@ -30,7 +30,7 @@ function App() {
   console.log(weatherData);
   return (
     <div className="App">
-      {weatherData.length > 0 && (
+      {weatherData && (
         <>
           {weatherData.map((data) => (
             <WeatherCard weatherData={data} />
