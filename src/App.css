@@ -2,8 +2,18 @@
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Itim", cursive;
 }
-
-
+.cards {
+  display: flex;
+  flex-direction: row;
+}
+.error {
+  color: white;
+  top: 30px;
+  position: absolute;
+  font-size: 30px;
+}

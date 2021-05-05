@@ -7,6 +7,7 @@ import "./App.css";
 function App() {
   const [weatherData, setWeatherData] = useState([]);
   const [city, setCity] = useState();
+  const [showError, setShowError] = useState(false);
 
   //show Stockholm weather as the default city
   useEffect(() => {
@@ -15,7 +16,9 @@ function App() {
 
   //add the weather of the user's choice
   useEffect(() => {
-    showWeather(city);
+    if (city) {
+      showWeather(city);
+    }
   }, [city]);
 
   //call API, get the waether data, show at most 5 cities at the same time
@@ -27,19 +30,21 @@ function App() {
         const exsitingWeatherData =
           weatherData.length > 4 ? weatherData.slice(1) : weatherData;
         setWeatherData([...exsitingWeatherData, response.data]);
+        setShowError(false);
       })
-      .catch(() => {});
+      .catch(() => setShowError(true));
   }
 
   return (
     <div className="App">
+      {showError && <div className="error">City not found 🙁, try again!</div>}
       {weatherData && (
-        <>
-          {weatherData.map((data) => (
-            <WeatherCard weatherData={data} />
+        <div className="cards">
+          {weatherData.map((data, i) => (
+            <WeatherCard weatherData={data} key={i} />
           ))}
           <Search setCity={setCity} />
-        </>
+        </div>
       )}
     </div>
   );

@@ -22,6 +22,7 @@ export default function Search({ setCity }) {
               className="searchBox"
               placeholder="Type a city.."
               onChange={(event) => setNewCity(event.target.value)}
+              autoFocus={true}
             />
           </form>
         </div>
