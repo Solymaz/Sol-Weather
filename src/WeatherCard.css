@@ -8,6 +8,7 @@
   flex-direction: column;
   justify-content: space-between;
   font-family: "Itim", cursive;
+  margin: 0 10px;
 }
 .timeDate {
   display: flex;

@@ -4,17 +4,24 @@ import Add from "../src/assets/Add";
 
 export default function Search({ setCity }) {
   const [showSearchBox, setShowSearchBox] = useState(false);
+  const [newCity, setNewCity] = useState();
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    setCity(newCity);
+    setShowSearchBox(false);
+  }
 
   return (
     <div className="search">
       {showSearchBox ? (
         <div className="searchBox">
-          <form>
+          <form onSubmit={handleSubmit}>
             <input
               type="search"
               className="searchBox"
               placeholder="Type a city.."
-              onChange={(event) => setCity(event.target.value)}
+              onChange={(event) => setNewCity(event.target.value)}
             />
           </form>
         </div>

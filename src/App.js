@@ -5,7 +5,7 @@ import WeatherCard from "./WeatherCard";
 import "./App.css";
 
 function App() {
-  const [weatherData, setWeatherData] = useState();
+  const [weatherData, setWeatherData] = useState([]);
   const [city, setCity] = useState();
 
   //show Stockholm weather as the default city
@@ -14,26 +14,30 @@ function App() {
   }, []);
 
   //add the weather of the user's choice
-  useEffect(() => {}, [city]);
+  useEffect(() => {
+    showWeather(city);
+  }, [city]);
 
   function showWeather(city) {
     const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f2ba4b7c95e0f3e8dedeafe2da9d569f&units=metric`;
     axios
       .get(weatherApiUrl)
       .then((response) => {
-        setWeatherData(response.data);
+        setWeatherData([...weatherData, response.data]);
       })
       .catch(() => {});
   }
   console.log(weatherData);
   return (
     <div className="App">
-      {weatherData &&
-      <>
-      <WeatherCard weatherData={weatherData} />
-      <Search setCity={setCity} />
-      </>
-      }
+      {weatherData.length > 0 && (
+        <>
+          {weatherData.map((data) => (
+            <WeatherCard weatherData={data} />
+          ))}
+          <Search setCity={setCity} />
+        </>
+      )}
     </div>
   );
 }
