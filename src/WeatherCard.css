@@ -1,15 +1,34 @@
 .weatherCard {
-  width: 200px;
-  height: 330px;
-  background-color: #f4d160;
   border-radius: 15px;
-  padding: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   font-family: "Itim", cursive;
+  justify-content: space-between;
+  height: 330px;
   margin: 0 10px;
+  padding: 10px;
+  width: 200px;
 }
+.weatherCard:nth-child(5n + 1) {
+  background-color: #f4d160;
+}
+
+.weatherCard:nth-child(5n + 2) {
+  background: #ff884b;
+}
+
+.weatherCard:nth-child(5n + 3) {
+  background: #8ac4d0;
+}
+
+.weatherCard:nth-child(5n + 4) {
+  background: #ff75a0;
+}
+
+.weatherCard:nth-child(5n + 5) {
+  background: #00917c;
+}
+
 .timeDate {
   display: flex;
   justify-content: space-between;
@@ -34,8 +53,8 @@
   justify-content: space-between;
 }
 .feelsLike {
-  text-align: center;
   font-size: 18px;
+  text-align: center;
 }
 .line {
   width: 200px;
