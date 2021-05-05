@@ -13,6 +13,7 @@ export default function WeatherCard({ weatherData }) {
     "10d": "rain",
     "11d": "thunder",
     "13d": "snow",
+    "50d": "fog",
     "01n": "night",
     "02n": "cloudy",
     "03n": "cloudy",
@@ -21,6 +22,7 @@ export default function WeatherCard({ weatherData }) {
     "10n": "rainy",
     "11n": "thunder",
     "13n": "snow",
+    "50n": "fog",
   };
 
   return (
