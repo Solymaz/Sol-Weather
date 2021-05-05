@@ -1,6 +1,41 @@
 .weatherCard {
-  width: 220px;
-  height: 350px;
+  width: 200px;
+  height: 330px;
   background-color: #f4d160;
   border-radius: 15px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: "Itim", cursive;
+}
+.timeDate {
+  display: flex;
+  justify-content: space-between;
+}
+.weatherIcon {
+  margin: 0 auto;
+}
+.icon {
+  height: 80px;
+}
+.temperature {
+  font-size: 62px;
+  text-align: center;
+}
+.description {
+  font-size: 24px;
+  text-align: center;
+  text-transform: capitalize;
+}
+.location {
+  display: flex;
+  justify-content: space-between;
+}
+.feelsLike {
+  text-align: center;
+  font-size: 18px;
+}
+.line {
+  width: 200px;
 }

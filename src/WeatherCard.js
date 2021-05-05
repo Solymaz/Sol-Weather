@@ -25,17 +25,27 @@ export default function WeatherCard({ weatherData }) {
 
   return (
     <div className="weatherCard">
-      <div className="time">{formatedTime}</div>
-      <div className="date">{formatedDate}</div>
-      <img
-        src={`icons/${iconMapping[weatherData.weather[0].icon]}.svg`}
-        alt={weatherData.weather[0].description}
-      />
-      <div className="temperature">{Math.round(weatherData.main.temp)}</div>
+      <div className="timeDate">
+        <span className="time">{formatedTime}</span>
+        <span className="date">{formatedDate}</span>
+      </div>
+      <div className="weatherIcon">
+        <img
+          className="icon"
+          src={`icons/${iconMapping[weatherData.weather[0].icon]}.svg`}
+          alt={weatherData.weather[0].description}
+        />
+      </div>
+      <div className="temperature">{Math.round(weatherData.main.temp)}°</div>
+      <div className="feelsLike">
+        Feels Like {Math.round(weatherData.main.feels_like)}°
+      </div>
       <div className="description">{weatherData.weather[0].description}</div>
-      <hr />
-      <div className="city">{weatherData.name}</div>
-      <div className="country">{weatherData.sys.country}</div>
+      <hr className="line" />
+      <div className="location">
+        <div className="city">{weatherData.name}</div>
+        <div className="country">{weatherData.sys.country}</div>
+      </div>
     </div>
   );
 }
