@@ -18,16 +18,19 @@ function App() {
     showWeather(city);
   }, [city]);
 
+  //call API, get the waether data, show at most 5 cities at the same time
   function showWeather(city) {
     const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f2ba4b7c95e0f3e8dedeafe2da9d569f&units=metric`;
     axios
       .get(weatherApiUrl)
       .then((response) => {
-        setWeatherData([...weatherData, response.data]);
+        const exsitingWeatherData =
+          weatherData.length > 4 ? weatherData.slice(1) : weatherData;
+        setWeatherData([...exsitingWeatherData, response.data]);
       })
       .catch(() => {});
   }
-  console.log(weatherData);
+
   return (
     <div className="App">
       {weatherData && (

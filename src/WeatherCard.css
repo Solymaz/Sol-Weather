@@ -9,23 +9,23 @@
   padding: 10px;
   width: 200px;
 }
-.weatherCard:nth-child(5n + 1) {
+.weatherCard:nth-child(1) {
   background-color: #f4d160;
 }
 
-.weatherCard:nth-child(5n + 2) {
+.weatherCard:nth-child(2) {
   background: #ff884b;
 }
 
-.weatherCard:nth-child(5n + 3) {
+.weatherCard:nth-child(3) {
   background: #8ac4d0;
 }
 
-.weatherCard:nth-child(5n + 4) {
+.weatherCard:nth-child(4) {
   background: #ff75a0;
 }
 
-.weatherCard:nth-child(5n + 5) {
+.weatherCard:nth-child(5) {
   background: #00917c;
 }
 
