@@ -37,8 +37,16 @@ function App() {
 
   return (
     <div className="App">
-      {showError && <div className="error">City not found 🙁, try again!</div>}
-      {weatherData && (
+      {weatherData.length === 0 && !showError && (
+        <div className="error">Loading...</div>
+      )}
+      {weatherData.length === 0 && showError && (
+        <div className="error">Could not fetch any data. Try again </div>
+      )}
+      {weatherData.length > 0 && showError && (
+        <div className="error">City not found 🙁, try again!</div>
+      )}
+      {weatherData.length > 0 && (
         <div className="cards">
           {weatherData.map((data, i) => (
             <WeatherCard weatherData={data} key={i} />
