@@ -6,13 +6,8 @@ import "./App.css";
 
 function App() {
   const [weatherData, setWeatherData] = useState([]);
-  const [city, setCity] = useState();
+  const [city, setCity] = useState("stockholm");
   const [showError, setShowError] = useState(false);
-
-  //show Stockholm weather as the default city
-  useEffect(() => {
-    showWeather("stockholm");
-  }, []);
 
   //add the weather of the user's choice
   useEffect(() => {
